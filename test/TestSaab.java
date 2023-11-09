@@ -71,5 +71,15 @@ public class TestSaab {
         saab.decrementSpeed(0);
     }
 
+    @Test
+    public void testGetEnginePower(){
+        assertEquals(125.0, saab.getEnginePower());
+    }
+
+    @Test
+    public void testSetColor(){
+        saab.setColor(Color.pink);
+        assertSame(Color.pink, saab.getColor());
+    }
 
 }

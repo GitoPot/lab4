@@ -49,9 +49,7 @@ public abstract class Cars implements Movable{
     protected void stopEngine(){
         currentSpeed = 0;
     }
-    public static void main(String[] args) {
 
-    }
     abstract public void incrementSpeed(double amount);
     abstract public void decrementSpeed(double amount);
 

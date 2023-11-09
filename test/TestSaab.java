@@ -18,8 +18,8 @@ public class TestSaab {
     @Test
     public void testGasAndBrake(){
 
-        for (int i = 0; i < 99; i ++){
-            saab.brake(1);
+        for (int i = 0; i < 130; i ++){
+            saab.gas(1);
         }
 
         saab.gas(1);

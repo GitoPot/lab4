@@ -61,7 +61,9 @@ public abstract class Cars implements Movable{
             incrementSpeed(amount);
         }
         else{
-            System.out.println("Amount outside range");
+
+            System.out.println("Amount outside incrementSpeed range");
+
         }
 
     }
@@ -70,7 +72,7 @@ public abstract class Cars implements Movable{
             decrementSpeed(amount);
         }
         else{
-            System.out.println("Amount outside range");
+            System.out.println("Amount outside decrementSpeed range");
         }
 
     }

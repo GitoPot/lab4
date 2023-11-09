@@ -2,15 +2,15 @@ import java.awt.*;
 
 public abstract class Cars implements Movable{
 
-    protected int nrDoors; // Number of doors on the car
-    protected double enginePower; // Engine power of the car
+    private final int nrDoors; // Number of doors on the car
+    private final double enginePower; // Engine power of the car
     protected double currentSpeed; // The current speed of the car
-    protected Color color; // Color of the car
-    protected String modelName; // The car model name
+    private Color color; // Color of the car
+    private final String modelName; // The car model name
 
     protected double x;
     protected double y;
-    protected int direction;
+    private int direction;
 
     protected Cars(int carNrDoors, double carEnginePower, Color carColor, String carModelName){
         nrDoors = carNrDoors;
@@ -22,23 +22,25 @@ public abstract class Cars implements Movable{
         stopEngine();
     }
 
-    protected int getNrDoors(){
+
+    public String getModelName(){ return modelName;}
+    public int getNrDoors(){
         return nrDoors;
     }
 
-    protected double getEnginePower(){
+    public double getEnginePower(){
         return enginePower;
     }
 
-    protected double getCurrentSpeed(){
+    public double getCurrentSpeed(){
         return currentSpeed;
     }
 
-    protected Color getColor(){
+    public Color getColor(){
         return color;
     }
 
-    protected void setColor(Color clr){
+    public void setColor(Color clr){
         color = clr;
     }
 
@@ -50,8 +52,8 @@ public abstract class Cars implements Movable{
         currentSpeed = 0;
     }
 
-    abstract public void incrementSpeed(double amount);
-    abstract public void decrementSpeed(double amount);
+    abstract protected void incrementSpeed(double amount);
+    abstract protected void decrementSpeed(double amount);
 
 
     public void gas(double amount){

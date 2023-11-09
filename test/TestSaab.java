@@ -9,8 +9,6 @@ public class TestSaab {
 
     private Saab95 saab;
 
-
-
     @Before
     public void init(){
         saab = new Saab95();
@@ -31,12 +29,16 @@ public class TestSaab {
     saab.gas(2);
     saab.brake(2);
 
-    System.out.println(saab.currentSpeed);
-    assertTrue(saab.currentSpeed<=saab.enginePower);
+    System.out.println(saab.getCurrentSpeed());
+    assertTrue(saab.getCurrentSpeed()<=saab.getEnginePower());
 
   }
 
-   
+   @Test
+   public void testGetModelName(){
+        String name = "Saab95";
+       assertEquals(saab.getModelName(), name);
+   }
 
     @Test
     public void testStartEngine(){
@@ -49,12 +51,6 @@ public class TestSaab {
     public void testGetNrDoors(){
         int doors=saab.getNrDoors();
         assertEquals(2, doors);
-    }
-
-    @Test
-    public void testGetSetColor(){
-        Color color = saab.getColor();
-        assertSame(color, Color.red);
     }
 
     @Test
@@ -79,7 +75,11 @@ public class TestSaab {
     public void testGetEnginePower(){
         assertEquals(125.0, saab.getEnginePower());
     }
-
+    @Test
+    public void testGetColor(){
+        Color color = saab.getColor();
+        assertSame(color, Color.red);
+    }
     @Test
     public void testSetColor(){
         saab.setColor(Color.pink);
@@ -87,12 +87,13 @@ public class TestSaab {
     }
 
     @Test
-    public void testMain(){//testar även turn funtionerna
+    public void testMovable(){//testar även turn funtionerna
         saab.move();
         saab.turnLeft();
         saab.move();
         saab.turnLeft();
         saab.move();
+        System.out.println("x "+saab.x +" y "+saab.y);
         saab.turnRight();
         saab.turnRight();
         saab.turnRight();

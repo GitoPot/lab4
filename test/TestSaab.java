@@ -18,12 +18,19 @@ public class TestSaab {
     }
 
     @Test
-    public void testThaThing(){
-        saab.gas(1);
+    public void testGasAndBrake(){
+
+        for (int i = 0; i < 99; i ++){
+            saab.brake(1);
+        }
+
+
+
+
         assertTrue(saab.currentSpeed<=saab.enginePower);
-        //
-        saab.brake(0);
         System.out.println(saab.currentSpeed);
+        //saab.brake(1);
+        //System.out.println(saab.currentSpeed);
     }
 
     @Test

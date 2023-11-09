@@ -25,8 +25,12 @@ public class TestSaab {
           saab.gas(1);
     }
 
-    saab.gas(1);
-    saab.brake(0.9);
+    saab.gas(1);//(amount <= 1 && amount >= 0)
+    saab.brake(0.9);//(amount <= 1 && amount >= 0)
+    //Ska testa det som failar
+    saab.gas(2);
+    saab.brake(2);
+
     System.out.println(saab.currentSpeed);
     assertTrue(saab.currentSpeed<=saab.enginePower);
 
@@ -80,6 +84,21 @@ public class TestSaab {
     public void testSetColor(){
         saab.setColor(Color.pink);
         assertSame(Color.pink, saab.getColor());
+    }
+
+    @Test
+    public void testMain(){//testar även turn funtionerna
+        saab.move();
+        saab.turnLeft();
+        saab.move();
+        saab.turnLeft();
+        saab.move();
+        saab.turnRight();
+        saab.turnRight();
+        saab.turnRight();
+        saab.move();
+        assertTrue(saab.y==0 && saab.x==0);
+
     }
 
 }

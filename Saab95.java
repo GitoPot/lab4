@@ -28,24 +28,19 @@ public class Saab95 extends Cars{
 
     @Override
     public void incrementSpeed(double amount){
-        while (currentSpeed < enginePower){
-            currentSpeed = getCurrentSpeed() + speedFactor() * amount;
+        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
+        if(currentSpeed>enginePower){
+            currentSpeed = enginePower;
         }
-
     }
 
     @Override
     public void decrementSpeed(double amount){
-        if(amount == 0){
-            System.out.println("NOT 0");
+        if(currentSpeed <= amount){
+            currentSpeed = 0;
+        }else{
+            currentSpeed = getCurrentSpeed() - speedFactor() * amount;
         }
-        else{
-            while (currentSpeed > 0){
-                currentSpeed = getCurrentSpeed() - speedFactor() * amount;
-            }
-        }
-
-
     }
 
 

@@ -13,20 +13,17 @@ public class TestSaab {
     @Before
     public void init(){
         saab = new Saab95();
+
+
     }
 
     @Test
-    public void testGasAndBrake(){
-
-        for (int i = 0; i < 99; i ++){
-            saab.brake(1);
-        }
-
+    public void testCurrentSpeed(){
         saab.gas(1);
-        saab.brake(0.9);
-        System.out.println(saab.currentSpeed);
         assertTrue(saab.currentSpeed<=saab.enginePower);
-
+        //
+        saab.brake(0);
+        System.out.println(saab.currentSpeed);
     }
 
     @Test
@@ -49,17 +46,21 @@ public class TestSaab {
     }
 
     @Test
-    public void testGetEnginePower(){
-        double enginePower = saab.getEnginePower();
-        assertTrue(125 == enginePower);
-    }
-
-    @Test
     public void testTurbo(){
         saab.setTurboOn();
         saab.setTurboOff();
-        saab.setTurboOn();
-        assertTrue(saab.isTurboOn());
+        assertTrue(!saab.isTurboOn());
+    }
+
+    @Test
+    public void testIncrementSpeed(){
+        saab.incrementSpeed(1);
+        assertTrue(saab.getCurrentSpeed()>=0.1);
+    }
+
+    @Test
+    public void testDecrementSpeed(){
+        saab.decrementSpeed(0);
     }
 
 

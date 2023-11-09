@@ -10,7 +10,6 @@ public abstract class Cars implements Movable{
 
     protected double x;
     protected double y;
-    protected String[] directions={"NORTH", "EAST", "SOUTH", "WEST"}; // ta bort om den inte används
     protected int direction;
 
     protected Cars(int carNrDoors, double carEnginePower, Color carColor, String carModelName){
@@ -78,7 +77,6 @@ public abstract class Cars implements Movable{
 
     @Override
     public void move() {
-        System.out.println(directions[direction]);
         if (direction%2==0) {
             if (direction==0){
                 y=y+currentSpeed;

@@ -45,5 +45,11 @@ public class TestSaab {
         assertTrue(color == Color.red);
     }
 
+    @Test
+    public void testGetEnginePower(){
+        double enginePower = saab.getEnginePower();
+        assertTrue(125 == enginePower);
+    }
+
 
 }

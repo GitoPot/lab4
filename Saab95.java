@@ -26,6 +26,7 @@ public class Saab95 extends Cars{
         return enginePower * 0.01 * turbo;
     }
 
+    @Override
     public void incrementSpeed(double amount){
         while (currentSpeed < enginePower){
             currentSpeed = getCurrentSpeed() + speedFactor() * amount;
@@ -33,6 +34,7 @@ public class Saab95 extends Cars{
 
     }
 
+    @Override
     public void decrementSpeed(double amount){
         if(amount == 0){
             System.out.println("NOT 0");

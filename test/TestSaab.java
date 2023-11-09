@@ -3,7 +3,8 @@ import org.junit.Test;
 
 import java.awt.*;
 
-import static junit.framework.TestCase.assertTrue;
+import static junit.framework.TestCase.*;
+
 public class TestSaab {
 
     private Saab95 saab;
@@ -30,26 +31,26 @@ public class TestSaab {
     public void testStartEngine(){
         saab.startEngine();
         double speed=saab.getCurrentSpeed();
-        assertTrue(speed==0.1);
+        assertEquals(0.1, speed);
     }
 
     @Test
     public void testGetNrDoors(){
         int doors=saab.getNrDoors();
-        assertTrue(doors==2);
+        assertEquals(2, doors);
     }
 
     @Test
     public void testGetSetColor(){
         Color color = saab.getColor();
-        assertTrue(color == Color.red);
+        assertSame(color, Color.red);
     }
 
     @Test
     public void testTurbo(){
         saab.setTurboOn();
         saab.setTurboOff();
-        assertTrue(!saab.isTurboOn());
+        assertFalse(saab.isTurboOn());
     }
 
     @Test

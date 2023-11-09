@@ -82,4 +82,19 @@ public class TestSaab {
         assertSame(Color.pink, saab.getColor());
     }
 
+    @Test
+    public void testMain(){//testar även turn funtionerna
+        saab.move();
+        saab.turnLeft();
+        saab.move();
+        saab.turnLeft();
+        saab.move();
+        saab.turnRight();
+        saab.turnRight();
+        saab.turnRight();
+        saab.move();
+        assertTrue(saab.y==0 && saab.x==0);
+
+    }
+
 }

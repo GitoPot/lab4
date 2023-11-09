@@ -13,8 +13,6 @@ public class TestSaab {
     @Before
     public void init(){
         saab = new Saab95();
-
-
     }
 
     @Test
@@ -56,6 +54,14 @@ public class TestSaab {
     public void testGetEnginePower(){
         double enginePower = saab.getEnginePower();
         assertTrue(125 == enginePower);
+    }
+
+    @Test
+    public void testTurbo(){
+        saab.setTurboOn();
+        saab.setTurboOff();
+        saab.setTurboOn();
+        assertTrue(saab.isTurboOn());
     }
 
 

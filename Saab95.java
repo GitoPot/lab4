@@ -32,7 +32,7 @@ public class Saab95 extends Cars{
 
     @Override
     public void decrementSpeed(double amount){
-        if(currentSpeed <= amount){
+        if(currentSpeed <= speedFactor() * amount){
             currentSpeed = 0;
         }else{
             currentSpeed = getCurrentSpeed() - speedFactor() * amount;

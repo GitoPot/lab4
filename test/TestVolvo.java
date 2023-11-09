@@ -1,7 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import java.awt.*;
+
 
 import static junit.framework.TestCase.*;
 public class TestVolvo {
@@ -22,5 +22,12 @@ public class TestVolvo {
         System.out.println(volvo.currentSpeed);
         assertTrue(volvo.currentSpeed<=volvo.enginePower);
 
+    }
+
+    @Test
+    public void testDecrementSpeed(){
+        System.out.println(volvo.currentSpeed);
+        volvo.decrementSpeed(100);
+        assertTrue(volvo.currentSpeed == 0);
     }
 }

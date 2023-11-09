@@ -14,10 +14,15 @@ public class Volvo240 extends Cars {
     }
 
 
+    @Override
     public void incrementSpeed(double amount) {
-        currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, enginePower);
+        while (currentSpeed < enginePower){
+            currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, enginePower);
+        }
+
     }
 
+    @Override
     public void decrementSpeed(double amount) {
 
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
@@ -25,7 +30,7 @@ public class Volvo240 extends Cars {
 }
 
 
-}
+
 
     // TODO fix this method according to lab pm
 

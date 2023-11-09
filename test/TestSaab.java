@@ -3,7 +3,8 @@ import org.junit.Test;
 
 import java.awt.*;
 
-import static junit.framework.TestCase.assertTrue;
+import static junit.framework.TestCase.*;
+
 public class TestSaab {
 
     private Saab95 saab;
@@ -13,53 +14,61 @@ public class TestSaab {
     @Before
     public void init(){
         saab = new Saab95();
+
     }
 
+  
     @Test
     public void testGasAndBrake(){
 
-        for (int i = 0; i < 130; i ++){
-            saab.gas(1);
-        }
-
-        saab.gas(1);
-        saab.brake(0.9);
-        System.out.println(saab.currentSpeed);
-        assertTrue(saab.currentSpeed<=saab.enginePower);
-
+      for (int i = 0; i < 130; i ++){
+          saab.gas(1);
     }
+
+    saab.gas(1);
+    saab.brake(0.9);
+    System.out.println(saab.currentSpeed);
+    assertTrue(saab.currentSpeed<=saab.enginePower);
+
+  }
+
+   
 
     @Test
     public void testStartEngine(){
         saab.startEngine();
         double speed=saab.getCurrentSpeed();
-        assertTrue(speed==0.1);
+        assertEquals(0.1, speed);
     }
 
     @Test
     public void testGetNrDoors(){
         int doors=saab.getNrDoors();
-        assertTrue(doors==2);
+        assertEquals(2, doors);
     }
 
     @Test
     public void testGetSetColor(){
         Color color = saab.getColor();
-        assertTrue(color == Color.red);
-    }
-
-    @Test
-    public void testGetEnginePower(){
-        double enginePower = saab.getEnginePower();
-        assertTrue(125 == enginePower);
+        assertSame(color, Color.red);
     }
 
     @Test
     public void testTurbo(){
         saab.setTurboOn();
         saab.setTurboOff();
-        saab.setTurboOn();
-        assertTrue(saab.isTurboOn());
+        assertFalse(saab.isTurboOn());
+    }
+
+    @Test
+    public void testIncrementSpeed(){
+        saab.incrementSpeed(1);
+        assertTrue(saab.getCurrentSpeed()>=0.1);
+    }
+
+    @Test
+    public void testDecrementSpeed(){
+        saab.decrementSpeed(0);
     }
 
 

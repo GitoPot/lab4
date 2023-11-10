@@ -34,7 +34,7 @@ public class TestScania {
 
         @Test
         public void testGetModelName(){
-            String name = "Scania";
+            String name = "ScaniaTruck";
             assertEquals(scan.getModelName(), name);
         }
 
@@ -81,7 +81,5 @@ public class TestScania {
             assertTrue(scan.y==0 && scan.x==0);
 
         }
-
-    }
 
 }

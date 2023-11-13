@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -80,6 +81,15 @@ public class TestScania {
             scan.move();
             assertTrue(scan.y==0 && scan.x==0);
 
+        }
+
+        @Test
+        public void testChangeGradient(){
+            scan.changeGradiant(67);
+            scan.changeGradiant(0);
+            scan.gas(1);
+            scan.changeGradiant(10);
+            assertTrue(scan.getGradiant() == 0);
         }
 
 }

@@ -6,7 +6,7 @@ public class Scania extends Cars{
 
 
     public Scania(){
-        super(2,100, Color.BLUE, "Scania");
+        super(2,100, Color.BLUE, "Scania", 2);
         gradiant=0;
     }
 

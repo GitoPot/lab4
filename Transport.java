@@ -1,16 +1,19 @@
 import java.awt.*;
 
 public class Transport extends Cars{
-    private double gradiant;
+    private boolean ramp;
+    private Object[] carLoad;
+
+    private int maxLoad;
 
     public Transport(){
-        super(2,100, Color.yellow, "Jumper EH35L HDI");
-        gradiant=0;
+        super(2,100, Color.yellow, "Jumper EH35L HDI", 2);
+        ramp=false;
     }
 
     @Override
     protected void incrementSpeed(double amount){
-        if(gradiant == 0){
+        if(!ramp){
             currentSpeed = Math.min(getCurrentSpeed() + amount, getEnginePower());
         }
     }
@@ -24,12 +27,20 @@ public class Transport extends Cars{
     }
 
 
-    protected void changeGradiant(double newGradiant){
-        if (this.getCurrentSpeed() == 0 && newGradiant<=70 && newGradiant>=0){
-            gradiant=newGradiant;
+    protected void changeRamp(){
+        if (this.getCurrentSpeed() == 0 && !ramp){
+            ramp = true;
+        }else {
+            ramp = false;
         }
     }
-    public double getGradiant(){
-        return gradiant;
+    public boolean getRamp(){
+        return ramp;
+    }
+
+    public Object[] getCarLoad(){ return carLoad; }
+
+    protected Object addCarToLoad(Object Car){
+
     }
 }

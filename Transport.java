@@ -19,7 +19,7 @@ public class Transport extends Cars{
     @Override
     protected void incrementSpeed(double amount){
         if(!ramp){
-            currentSpeed = min(getCurrentSpeed() + amount, getEnginePower());
+            currentSpeed = Math.min(getCurrentSpeed() + amount, getEnginePower());
         }
     }
     @Override

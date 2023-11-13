@@ -7,18 +7,20 @@ public abstract class Cars implements Movable{
     protected double currentSpeed; // The current speed of the car
     private Color color; // Color of the car
     private final String modelName; // The car model name
+    private int loadSize;
 
-    protected double x;
-    protected double y;
+    private double x;
+    private double y;
     private int direction;
 
-    protected Cars(int carNrDoors, double carEnginePower, Color carColor, String carModelName, int loadSize){
+    protected Cars(int carNrDoors, double carEnginePower, Color carColor, String carModelName, int carLoadSize){
         nrDoors = carNrDoors;
         enginePower = carEnginePower;
         color = carColor;
         modelName = carModelName;
-
-
+        loadSize=carLoadSize;
+        x=0;
+        y=0;
         stopEngine();
     }
 
@@ -50,6 +52,10 @@ public abstract class Cars implements Movable{
 
     protected void stopEngine(){
         currentSpeed = 0;
+    }
+
+    public int getLoadSize(){
+        return loadSize;
     }
 
     abstract protected void incrementSpeed(double amount);
@@ -115,5 +121,11 @@ public abstract class Cars implements Movable{
         if (direction>3){
             direction=direction-4;
         }
+    }
+    public double getX(){
+        return x;
+    }
+    public double getY(){
+        return y;
     }
 }

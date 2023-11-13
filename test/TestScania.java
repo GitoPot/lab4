@@ -74,12 +74,12 @@ public class TestScania {
             scan.move();
             scan.turnLeft();
             scan.move();
-            System.out.println("x "+scan.x +" y "+scan.y);
+            System.out.println("x "+scan.getX() +" y "+scan.getY());
             scan.turnRight();
             scan.turnRight();
             scan.turnRight();
             scan.move();
-            assertTrue(scan.y==0 && scan.x==0);
+            assertTrue(scan.getY()==0 && scan.getX()==0);
 
         }
 

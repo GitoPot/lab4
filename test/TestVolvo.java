@@ -39,12 +39,12 @@ public class TestVolvo {
         volvo.move();
         volvo.turnLeft();
         volvo.move();
-        System.out.println("x "+volvo.x +" y "+volvo.y);
+        System.out.println("x "+volvo.getX() +" y "+volvo.getY());
         volvo.turnRight();
         volvo.turnRight();
         volvo.turnRight();
         volvo.move();
-        assertTrue(volvo.y==0 && volvo.x==0);
+        assertTrue(volvo.getY()==0 && volvo.getX()==0);
 
     }
 

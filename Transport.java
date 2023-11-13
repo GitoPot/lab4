@@ -1,20 +1,25 @@
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.lang.Math.*;
 
 public class Transport extends Cars{
     private boolean ramp;
-    private Object[] carLoad;
+    private List<Cars> carLoad;
 
     private int maxLoad;
 
-    public Transport(){
+    public Transport(int maximunLoad){
         super(2,100, Color.yellow, "Jumper EH35L HDI", 2);
         ramp=false;
+        maxLoad=maximunLoad;
+        carLoad = new ArrayList<Cars>();
     }
 
     @Override
     protected void incrementSpeed(double amount){
         if(!ramp){
-            currentSpeed = Math.min(getCurrentSpeed() + amount, getEnginePower());
+            currentSpeed = min(getCurrentSpeed() + amount, getEnginePower());
         }
     }
     @Override
@@ -38,9 +43,18 @@ public class Transport extends Cars{
         return ramp;
     }
 
-    public Object[] getCarLoad(){ return carLoad; }
+    public List<Cars> getCarLoad(){
+        return carLoad;
+    }
 
-    protected Object addCarToLoad(Object Car){
-
+    protected void addCarToLoad(Cars Car){ //antag att transporten bara kan lasta personbilar
+        int loadSize = Car.getLoadSize();
+        double diffX = this.getX()-Car.getX();
+        double diffY = this.getY()-Car.getY();
+        if ((Math.abs(diffX)<=5) && (Math.abs(diffY)<=5) ) {
+            if (loadSize < 2 && this.getCurrentSpeed() == 0 && maxLoad > carLoad.size() && ramp) {
+                carLoad.add(Car);
+            }
+        }
     }
 }

@@ -93,12 +93,12 @@ public class TestSaab {
         saab.move();
         saab.turnLeft();
         saab.move();
-        System.out.println("x "+saab.x +" y "+saab.y);
+        System.out.println("x "+saab.getX() +" y "+saab.getY());
         saab.turnRight();
         saab.turnRight();
         saab.turnRight();
         saab.move();
-        assertTrue(saab.y==0 && saab.x==0);
+        assertTrue(saab.getY()==0 && saab.getX()==0);
 
     }
 

@@ -88,6 +88,7 @@ public class TestSaab {
 
     @Test
     public void testMovable(){//testar även turn funtionerna
+        saab.gas(1);
         saab.move();
         saab.turnLeft();
         saab.move();

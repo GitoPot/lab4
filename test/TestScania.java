@@ -69,6 +69,7 @@ public class TestScania {
 
         @Test
         public void testMovable(){//testar även turn funtionerna
+            scan.gas(1);
             scan.move();
             scan.turnLeft();
             scan.move();

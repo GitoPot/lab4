@@ -85,22 +85,20 @@ public abstract class Cars implements Movable{
 
     @Override
     public void move() {
-        if (direction%2==0) {
-            if (direction==0){
-                y=y+currentSpeed;
-            }
-            else {
-                y=y-currentSpeed;
-            }
+        if (direction==0){
+            y=y+currentSpeed;
         }
-        else {
-            if (direction==1){
-                x=x+currentSpeed;
-            }
-            else {
-                x=x-currentSpeed;
-            }
+        else if(direction==2) {
+            y=y-currentSpeed;
         }
+
+        else if (direction==1){
+            x=x+currentSpeed;
+        }
+        else if(direction==3) {
+            x=x-currentSpeed;
+        }
+
 
         System.out.println("X: "+x);
         System.out.println("Y: "+y);

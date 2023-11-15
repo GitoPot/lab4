@@ -34,6 +34,7 @@ public class TestVolvo {
 
     @Test
     public void testMovable(){//testar även turn funtionerna
+        volvo.gas(1);
         volvo.move();
         volvo.turnLeft();
         volvo.move();

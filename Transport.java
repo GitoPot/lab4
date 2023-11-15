@@ -47,7 +47,7 @@ public class Transport extends Cars{
         return carLoad;
     }
 
-    protected void addCarToLoad(Cars Car){ //antag att transporten bara kan lasta personbilar
+    protected void addCarToLoad(Cars Car){ //antag att Transporten bara kan lasta personbilar
         int loadSize = Car.getLoadSize();
         double diffX = this.getX()-Car.getX();
         double diffY = this.getY()-Car.getY();
@@ -57,4 +57,6 @@ public class Transport extends Cars{
             }
         }
     }
+
+
 }

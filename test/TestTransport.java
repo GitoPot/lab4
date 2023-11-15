@@ -1,3 +1,4 @@
+import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -28,6 +29,27 @@ public class TestTransport {
         transport.addCarToLoad(saab);
 
         assertTrue(carLoad.size()==2);
+    }
+    @Test
+    public void testMovable(){//testar även turn funtionerna
+        transport.changeRamp();
+        transport.addCarToLoad(volvo);
+        transport.changeRamp();
+        transport.gas(1);
+        transport.move();
+        transport.turnLeft();
+        transport.move();
+        transport.turnLeft();
+        transport.move();
+        System.out.println("x "+transport.getX() +" y "+transport.getY());
+        transport.turnRight();
+        transport.turnRight();
+        transport.turnRight();
+        transport.move();
+        transport.move();
+        System.out.println("x "+transport.getX() +" y "+transport.getY());
+        System.out.println("x "+volvo.getX() +" y "+volvo.getY());
+        TestCase.assertTrue((transport.getY()== volvo.getY()) && (transport.getX()== volvo.getX()));
     }
 
 }

@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,9 +55,36 @@ public class Transport extends Cars{
         if ((Math.abs(diffX)<=5) && (Math.abs(diffY)<=5) ) {
             if (loadSize < 2 && this.getCurrentSpeed() == 0 && maxLoad > carLoad.size() && ramp) {
                 carLoad.add(Car);
+                Car.x=this.x;
+                Car.y=this.y;
             }
         }
+
     }
 
 
-}
+    @Override
+    public void move(){
+        int direction = this.getDirection();
+        if (direction==0){
+            y=y+getCurrentSpeed();
+        }
+        else if(direction==2) {
+            y=y-getCurrentSpeed();
+        }
+
+        else if (direction==1){
+            x=x+getCurrentSpeed();
+        }
+        else if(direction==3) {
+            x=x-getCurrentSpeed();
+
+        }
+        int length = carLoad.size();
+        for (Cars cars : carLoad) {
+            cars.x = this.x;
+            cars.y = this.y;
+        }
+    }
+
+}//Transport

@@ -1,5 +1,6 @@
 import java.awt.*;
 
+
 public abstract class Cars implements Movable{
 
     private final int nrDoors; // Number of doors on the car
@@ -9,8 +10,8 @@ public abstract class Cars implements Movable{
     private final String modelName; // The car model name
     private int loadSize;
 
-    private double x;
-    private double y;
+    protected double x;
+    protected double y;
     private int direction;
 
     protected Cars(int carNrDoors, double carEnginePower, Color carColor, String carModelName, int carLoadSize){
@@ -126,4 +127,8 @@ public abstract class Cars implements Movable{
     public double getY(){
         return y;
     }
+    public int getDirection(){
+        return direction;
+    }
+
 }

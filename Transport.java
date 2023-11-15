@@ -10,10 +10,10 @@ public class Transport extends Cars{
 
     private int maxLoad;
 
-    public Transport(int maximunLoad){
+    public Transport(int maximumLoad){
         super(2,100, Color.yellow, "Jumper EH35L HDI", 2);
         ramp=false;
-        maxLoad=maximunLoad;
+        maxLoad=maximumLoad;
         carLoad = new ArrayList<Cars>();
     }
 
@@ -60,6 +60,17 @@ public class Transport extends Cars{
             }
         }
 
+    }
+
+    public void removeCarFromLoad(){
+        int index = carLoad.size();
+
+        if ( this.getCurrentSpeed() == 0 && ramp) {
+            carLoad.remove(index-1);
+        }
+        else {
+            System.out.println("Please put down the ramp and stop moving!");
+        }
     }
 
 

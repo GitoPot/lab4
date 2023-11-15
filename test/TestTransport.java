@@ -31,6 +31,22 @@ public class TestTransport {
         assertTrue(carLoad.size()==2);
     }
     @Test
+    public void testRemoveCarFromLoad(){
+        transport.changeRamp();
+        transport.addCarToLoad(saab);
+        transport.addCarToLoad(volvo);
+        System.out.println(transport.getCarLoad());
+
+        transport.changeRamp();
+        transport.removeCarFromLoad();
+        System.out.println(transport.getCarLoad());
+
+        transport.changeRamp();
+        transport.removeCarFromLoad();
+        System.out.println(transport.getCarLoad());
+        assertTrue(transport.getCarLoad().size()==1);
+    }
+    @Test
     public void testMovable(){//testar även turn funtionerna
         transport.changeRamp();
         transport.addCarToLoad(volvo);
@@ -51,5 +67,6 @@ public class TestTransport {
         System.out.println("x "+volvo.getX() +" y "+volvo.getY());
         TestCase.assertTrue((transport.getY()== volvo.getY()) && (transport.getX()== volvo.getX()));
     }
+
 
 }

@@ -10,23 +10,24 @@ public class TestTransport {
     private Transport transport;
     private Saab95 saab;
     private Volvo240 volvo;
+    private Scania scania;
     @Before
     public void init(){
         transport = new Transport(2);
         saab = new Saab95();
         volvo = new Volvo240();
+        scania = new Scania();
     }
 
     @Test
     public void testAddCardToLoad(){
-
-
         transport.addCarToLoad(saab);
         List<Cars> carLoad = transport.getCarLoad();
         transport.changeRamp();
         transport.addCarToLoad(volvo);
+        transport.addCarToLoad(scania);
         transport.addCarToLoad(saab);
-        transport.addCarToLoad(saab);
+
 
         assertTrue(carLoad.size()==2);
     }

@@ -52,7 +52,7 @@ public class Transport extends Cars{
         int loadSize = Car.getLoadSize();
         double diffX = this.getX()-Car.getX();
         double diffY = this.getY()-Car.getY();
-        if ((Math.abs(diffX)<=5) && (Math.abs(diffY)<=5) ) {
+        if ((Math.abs(diffX)<=5) && (Math.abs(diffY)<=5) ) {// bilen måste vara inom en 5x5 kvadrat
             if (loadSize < 2 && this.getCurrentSpeed() == 0 && maxLoad > carLoad.size() && ramp) {
                 carLoad.add(Car);
                 Car.x=this.x;

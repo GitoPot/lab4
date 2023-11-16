@@ -69,5 +69,11 @@ public class TestTransport {
         TestCase.assertTrue((transport.getY()== volvo.getY()) && (transport.getX()== volvo.getX()));
     }
 
+    @Test
+    public void testLoadLock(){
+        volvo.setLoadedLocked();
+        assertTrue(volvo.getLoadedLocked());
+    }
+
 
 }

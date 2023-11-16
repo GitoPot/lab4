@@ -21,4 +21,8 @@ public class LosSantosCustoms implements GenericGarage<Cars>{//uppgift 3
     public List<Cars> getGarageCars() {
         return parent.getGarageCars();
     }
+    @Override
+    public void collectCar(Cars car){
+        parent.collectCar(car);
+    }
 }

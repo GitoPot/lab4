@@ -17,4 +17,9 @@ public class BrandGarage<T> implements GenericGarage<T>{// Bara ett slags märke
     public List<T> getGarageCars(){
         return parent.getGarageCars(); // deligerar
     }
+
+    @Override
+    public void collectCar(T car) {
+        parent.collectCar(car);
+    }
 }

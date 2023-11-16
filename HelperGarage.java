@@ -17,8 +17,22 @@ public class HelperGarage<T> implements GenericGarage<T>{
     }
     @Override
     public void handInCar(T car) {
-        if(garageCars.size()<garageCapacity){
+        if(garageCars.size()<garageCapacity && !garageCars.contains(car)){
             garageCars.add(car);
+        }
+        else {
+            System.out.println("The car is already in the garage");
+        }
+
+    }
+
+    @Override
+    public void collectCar(T car){
+        if (garageCars.contains(car)){
+            garageCars.remove(car);
+        }
+        else {
+            System.out.println("The car is not in the garage");
         }
 
     }

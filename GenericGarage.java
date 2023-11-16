@@ -6,5 +6,7 @@ public interface GenericGarage<T> {
     //hämta bilar
     void handInCar(T car);
     List<T> getGarageCars();
+
+    void collectCar(T car);
 }
 

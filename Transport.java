@@ -57,6 +57,7 @@ public class Transport extends Cars{
                 carLoad.add(Car);
                 Car.x=this.x;
                 Car.y=this.y;
+                if(!Car.getLoadedLocked()){Car.setLoadedLocked();}
             }
         }
 
@@ -64,9 +65,11 @@ public class Transport extends Cars{
 
     public void removeCarFromLoad(){
         int index = carLoad.size();
+        Cars car = carLoad.get(index - 1);
 
-        if ( this.getCurrentSpeed() == 0 && ramp) {
-            carLoad.remove(index-1);
+        if ( this.getCurrentSpeed() == 0 && ramp && car.getLoadedLocked()) {
+            carLoad.remove(car);
+            car.setLoadedLocked();
         }
         else {
             System.out.println("Please put down the ramp and stop moving!");
@@ -91,7 +94,6 @@ public class Transport extends Cars{
             x=x-getCurrentSpeed();
 
         }
-        int length = carLoad.size();
         for (Cars cars : carLoad) {
             cars.x = this.x;
             cars.y = this.y;

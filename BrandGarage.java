@@ -1,7 +1,6 @@
-import java.util.ArrayList;
 import java.util.List;
 
-public class BrandGarage<T> implements GenericGarage<T>{// Bara ett slags märkes bilar
+public class BrandGarage<T> implements GenericGarage<T>{// Bara bilar med ett specifikt märke
 
     private final HelperGarage<T> parent; // Composition
 

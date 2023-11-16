@@ -16,4 +16,10 @@ public class BrandGarage<T> implements GenericGarage<T>{// Bara bilar med ett sp
     public List<T> getGarageCars(){
         return parent.getGarageCars(); // deligerar
     }
+
+
+    @Override
+    public void collectCar(T car) {
+        parent.collectCar(car);
+    }
 }

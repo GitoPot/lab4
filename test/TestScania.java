@@ -35,7 +35,7 @@ public class TestScania {
 
         @Test
         public void testGetModelName(){
-            String name = "ScaniaTruck";
+            String name = "Scania";
             assertEquals(scan.getModelName(), name);
         }
 
@@ -54,12 +54,12 @@ public class TestScania {
 
         @Test
         public void testGetEnginePower(){
-            assertEquals(125.0, scan.getEnginePower());//byt siffra
+            assertTrue(100 == scan.getEnginePower());//byt siffra
         }
         @Test
         public void testGetColor(){
             Color color = scan.getColor();
-            assertSame(color, Color.red);//byt färg
+            assertSame(color, Color.BLUE);//byt färg
         }
         @Test
         public void testSetColor(){

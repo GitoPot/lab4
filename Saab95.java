@@ -11,7 +11,7 @@ public class Saab95 extends Cars{
     }
     public void setTurboOff(){
 	    turboOn = false;
-    }//används ej
+    }
     public boolean isTurboOn(){
         return turboOn;
     }

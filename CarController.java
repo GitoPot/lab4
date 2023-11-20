@@ -1,6 +1,11 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /*
@@ -49,6 +54,7 @@ public class CarController {
                 int y = (int) Math.round(car.getY());
                 frame.drawPanel.moveit(x, y);
                 // repaint() calls the paintComponent method of the panel
+                checkBorder();
                 frame.drawPanel.repaint();
             }
         }
@@ -67,5 +73,12 @@ public class CarController {
         for (Cars car : cars){
             car.brake(brake);
         }
+    }
+
+    void checkBorder() {
+        BufferedImage bimg = frame.drawPanel.volvoImage;
+        int width = bimg.getWidth();
+        int height = bimg.getHeight();
+        System.out.println(width +" "+ height);
     }
 }

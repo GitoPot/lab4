@@ -30,6 +30,8 @@ public class CarController {
         CarController cc = new CarController();
 
         cc.cars.add(new Volvo240());
+        cc.cars.add(new Saab95());
+        cc.cars.add(new Scania());
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
@@ -62,10 +64,36 @@ public class CarController {
         }
     }
 
-    void brake (int amount){
+    void brake(int amount) {
         double brake = ((double) amount) / 100;
-        for (Cars car : cars){
+        for (Cars car : cars) {
             car.brake(brake);
+        }
+    }
+
+    void turboOn() {
+        Saab95.setTurboOn();
+    }
+
+    void turboOff() {
+        Saab95.setTurboOff();
+    }
+
+    void liftBed() {
+        Scania.changeGradiant(70);
+    }
+
+    void lowerBed() {// Ska igentligen kunna vara vad som helst mellan 0 och 70 men behöver ändra mycket för att få det att funka
+        Scania.changeGradiant(0);
+    }
+
+    void start() {
+        //vet ej vad denna ska göra /Oskar
+    }
+
+    void stop() {
+        for (Cars car : cars) {
+            car.currentSpeed = 0;
         }
     }
 }

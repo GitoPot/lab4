@@ -20,8 +20,10 @@ public class DrawPanel extends JPanel{
 
     // TODO: Make this genereal for all cars
     void moveit(int x, int y, Cars car){
-        if (x < 0 || x > 800){car.turnLeft(); car.turnLeft();}
-        if (y < 0 || y > 500){car.turnRight(); car.turnRight();}
+        if (x < 0){car.stopEngine(); car.startEngine(); car.x=0; car.turnLeft(); car.turnLeft();}
+        else if (x > 800){car.stopEngine(); car.startEngine(); car.x=800; car.turnLeft(); car.turnLeft();}
+        else if (y < 0){car.turnLeft(); car.turnLeft(); car.y=0; car.stopEngine(); car.startEngine(); }
+        else if (y > 500){car.turnLeft(); car.turnLeft(); car.y=500; car.stopEngine(); car.startEngine(); }
 
         if (car instanceof Volvo240){
             volvoPoint.x = x;

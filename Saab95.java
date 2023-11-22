@@ -5,9 +5,11 @@ public class Saab95 extends Cars{
     public Saab95(){
         super(2, 125, Color.red, "Saab95", 1);
 	    turboOn = false;
+        x=100;
     }
     public void setTurboOn(){
 	    turboOn = true;
+        System.out.println("TURBO IS ON OWO");
     }
     public void setTurboOff(){
 	    turboOn = false;

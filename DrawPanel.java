@@ -19,13 +19,21 @@ public class DrawPanel extends JPanel{
     Point scaniaPoint = new Point();
 
     // TODO: Make this genereal for all cars
-    void moveit(int x, int y){
-        volvoPoint.x = x;
-        volvoPoint.y = y;
-        saabPoint.x = x;
-        saabPoint.y = y;
-        scaniaPoint.x = x;
-        scaniaPoint.y = y;
+    void moveit(int x, int y, Cars car){
+        if (x < 0 || x > 800){car.turnLeft(); car.turnLeft();}
+        if (y < 0 || y > 500){car.turnRight(); car.turnRight();}
+
+        if (car instanceof Volvo240){
+            volvoPoint.x = x;
+            volvoPoint.y = y;
+        } else if (car instanceof Saab95) {
+            saabPoint.x = x;
+            saabPoint.y = y;
+        } else if (car instanceof Scania){
+            scaniaPoint.x = x;
+            scaniaPoint.y = y;
+        }
+
     }
 
     // Initializes the panel and reads the images
@@ -57,7 +65,7 @@ public class DrawPanel extends JPanel{
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(volvoImage, volvoPoint.x, volvoPoint.y, null); // see javadoc for more info on the parameters
-        g.drawImage(saabImage, saabPoint.x+100, saabPoint.y, null);
-        g.drawImage(scaniaImage, scaniaPoint.x+200, scaniaPoint.y, null);
+        g.drawImage(saabImage, saabPoint.x, saabPoint.y, null);
+        g.drawImage(scaniaImage, scaniaPoint.x, scaniaPoint.y, null);
     }
 }

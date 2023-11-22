@@ -8,6 +8,7 @@ public class Scania extends Cars{
     public Scania(){
         super(2,100, Color.BLUE, "Scania", 2);
         gradiant=0;
+        x=200;
     }
 
     @Override

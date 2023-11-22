@@ -30,6 +30,7 @@ public class Scania extends Cars{
     protected void changeGradiant(double newGradiant){
         if (this.getCurrentSpeed() == 0 && newGradiant<=70 && newGradiant>=0){
             gradiant=newGradiant;
+            System.out.println("Scanias flak har graden "+gradiant);
         }
     }
     public double getGradiant(){

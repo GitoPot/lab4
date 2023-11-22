@@ -84,19 +84,39 @@ public class CarController {
         System.out.println(width +" "+ height);
     }
     void turboOn() {
-        Saab95.setTurboOn();
+
+        for (Cars car : cars){
+            if(car instanceof Saab95){
+                ((Saab95) car).setTurboOn();;
+            }
+        }
+
     }
 
     void turboOff() {
-        Saab95.setTurboOff();
+        for (Cars car : cars){
+            if(car instanceof Saab95){
+                ((Saab95) car).setTurboOff();
+            }
+        }
     }
 
     void liftBed() {
-        Scania.changeGradiant(70);
+
+        for(Cars car : cars){
+            if (car instanceof  Scania){
+                ((Scania) car).changeGradiant(70);
+            }
+        }
+
     }
 
-    void lowerBed() {// Ska igentligen kunna vara vad som helst mellan 0 och 70 men behöver ändra mycket för att få det att funka
-        Scania.changeGradiant(0);
+    void lowerBed() {
+        for(Cars car : cars){
+            if (car instanceof  Scania){
+                ((Scania) car).changeGradiant(0);
+            }
+        }
     }
 
     void start() {
@@ -104,8 +124,10 @@ public class CarController {
     }
 
     void stop() {
+
+
         for (Cars car : cars) {
-            car.currentSpeed = 0;
+            car.stopEngine();
         }
-    
+    }
 }

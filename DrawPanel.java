@@ -57,7 +57,7 @@ public class DrawPanel extends JPanel{
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(volvoImage, volvoPoint.x, volvoPoint.y, null); // see javadoc for more info on the parameters
-        g.drawImage(saabImage, saabPoint.x, saabPoint.y, null);
-        g.drawImage(scaniaImage, scaniaPoint.x, scaniaPoint.y, null);
+        g.drawImage(saabImage, saabPoint.x+100, saabPoint.y, null);
+        g.drawImage(scaniaImage, scaniaPoint.x+200, scaniaPoint.y, null);
     }
 }

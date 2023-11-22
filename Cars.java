@@ -11,6 +11,7 @@ public abstract class Cars implements Movable {
     private final int loadSize;
 
     private boolean LoadedLocked;
+    private boolean Started;
 
     protected double x;
     protected double y;
@@ -26,6 +27,7 @@ public abstract class Cars implements Movable {
         y = 0;
         stopEngine();
         LoadedLocked = false;
+        Started = false;
     }
 
 
@@ -55,10 +57,12 @@ public abstract class Cars implements Movable {
 
     protected void startEngine() {
         currentSpeed = 0.1;
+        Started = true;
     }
 
     protected void stopEngine() {
         currentSpeed = 0;
+        Started = false;
     }
 
     public int getLoadSize() {
@@ -71,11 +75,11 @@ public abstract class Cars implements Movable {
 
 
     public void gas(double amount) {
-        if (amount <= 1 && amount >= 0) {
+        if (amount <= 1 && amount >= 0 && Started) {
             incrementSpeed(amount);
         } else {
 
-            System.out.println("Amount outside incrementSpeed range");
+            System.out.println("Amount outside incrementSpeed range or the cars are not started");
 
         }
 

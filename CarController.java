@@ -120,12 +120,12 @@ public class CarController {
     }
 
     void start() {
-        //vet ej vad denna ska göra /Oskar
+        for (Cars car : cars) {
+            car.startEngine();
+        }
     }
 
     void stop() {
-
-
         for (Cars car : cars) {
             car.stopEngine();
         }

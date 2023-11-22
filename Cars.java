@@ -57,13 +57,11 @@ public abstract class Cars implements Movable {
 
     protected void startEngine() {
         Started = true;
-        System.out.println("Fordonen har startats");
     }
 
     protected void stopEngine() {
         currentSpeed = 0;
         Started = false;
-        System.out.println("Fordonen har stoppats");
     }
 
     public int getLoadSize() {

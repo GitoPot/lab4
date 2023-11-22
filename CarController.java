@@ -113,12 +113,14 @@ public class CarController {
     }
 
     void start() {
+        System.out.println("Fordonen har startats");
         for (Cars car : cars) {
             car.startEngine();
         }
     }
 
     void stop() {
+        System.out.println("Fordonen har stoppats");
         for (Cars car : cars) {
             car.stopEngine();
         }

@@ -56,13 +56,14 @@ public abstract class Cars implements Movable {
     }
 
     protected void startEngine() {
-        currentSpeed = 0.1;
         Started = true;
+        System.out.println("Fordonen har startats");
     }
 
     protected void stopEngine() {
         currentSpeed = 0;
         Started = false;
+        System.out.println("Fordonen har stoppats");
     }
 
     public int getLoadSize() {
@@ -108,9 +109,6 @@ public abstract class Cars implements Movable {
             }
         }else{System.out.println("Din bil är fastspänd på en transportbil");}
 
-
-        System.out.println("X: " + x);
-        System.out.println("Y: " + y);
     }
 
     @Override

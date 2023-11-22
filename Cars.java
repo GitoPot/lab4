@@ -28,6 +28,7 @@ public abstract class Cars implements Movable {
         stopEngine();
         LoadedLocked = false;
         Started = false;
+        direction = 1;
     }
 
 
@@ -63,6 +64,7 @@ public abstract class Cars implements Movable {
         currentSpeed = 0;
         Started = false;
     }
+
 
     public int getLoadSize() {
         return loadSize;

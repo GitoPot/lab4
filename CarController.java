@@ -54,9 +54,7 @@ public class CarController {
                 car.move();
                 int x = (int) Math.round(car.getX());
                 int y = (int) Math.round(car.getY());
-                frame.drawPanel.moveit(x, y);
-                // repaint() calls the paintComponent method of the panel
-                checkBorder();
+                frame.drawPanel.moveit(x, y, car);
                 frame.drawPanel.repaint();
             }
         }
@@ -77,16 +75,11 @@ public class CarController {
         }
     }
 
-    void checkBorder() {
-        BufferedImage bimg = frame.drawPanel.volvoImage;
-        int width = bimg.getWidth();
-        int height = bimg.getHeight();
-        System.out.println(width +" "+ height);
-    }
     void turboOn() {
 
         for (Cars car : cars){
             if(car instanceof Saab95){
+
                 ((Saab95) car).setTurboOn();;
             }
         }

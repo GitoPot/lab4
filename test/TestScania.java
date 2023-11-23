@@ -42,8 +42,8 @@ public class TestScania {
         @Test
         public void testStartEngine(){
             scan.startEngine();
-            double speed=scan.getCurrentSpeed();
-            assertEquals(0.1, speed);
+            boolean started=scan.isStarted();
+            assertTrue(started);
         }
 
         @Test

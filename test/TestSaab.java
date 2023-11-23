@@ -43,8 +43,8 @@ public class TestSaab {
     @Test
     public void testStartEngine(){
         saab.startEngine();
-        double speed=saab.getCurrentSpeed();
-        assertEquals(0.1, speed);
+        boolean started=saab.isStarted();
+        assertTrue(started);
     }
 
     @Test

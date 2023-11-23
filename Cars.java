@@ -64,6 +64,9 @@ public abstract class Cars implements Movable {
         currentSpeed = 0;
         Started = false;
     }
+    public boolean isStarted(){
+        return Started;
+    }
 
 
     public int getLoadSize() {

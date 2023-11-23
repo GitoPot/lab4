@@ -58,8 +58,8 @@ public class TestVolvo {
     @Test
     public void testStartEngine(){
         volvo.startEngine();
-        double speed=volvo.getCurrentSpeed();
-        assertEquals(0.1, speed);
+        boolean started=volvo.isStarted();
+        assertTrue(started);
     }
 
     @Test

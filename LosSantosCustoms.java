@@ -1,10 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class LosSantosCustoms implements GenericGarage<Cars>{//uppgift 3
-    // Detta är vår bilverkstads fil
-
-    // Det behövs skapa en gemensam fil som olika verkstäder kan "ärva" från genom composition, det går inte att ärva normalt.
+public class LosSantosCustoms implements GenericGarage<Cars>{
     private final HelperGarage<Cars> parent;  // Composition
 
     public LosSantosCustoms(int capacity){

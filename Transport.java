@@ -40,10 +40,6 @@ public class Transport extends Cars{
             ramp = false;
         }
     }
-    public boolean getRamp(){
-        return ramp;
-    }
-
     public List<Cars> getCarLoad(){
         return carLoad;
     }

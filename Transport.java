@@ -1,8 +1,6 @@
-import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.lang.Math.*;
 
 public class Transport extends Vehicle{
     private boolean ramp;
@@ -44,11 +42,13 @@ public class Transport extends Vehicle{
         return vehicleLoad;
     }
 
-    protected void addVehicleToLoad(Vehicle vehicle){ //antag att Transporten bara kan lasta personbilar
+    protected void addVehicleToLoad(Vehicle vehicle){
+        //antag att Transporten bara kan lasta personbilar
         int loadSize = vehicle.getLoadSize();
         double diffX = this.getX()-vehicle.getX();
         double diffY = this.getY()-vehicle.getY();
-        if ((Math.abs(diffX)<=5) && (Math.abs(diffY)<=5) && !vehicleLoad.contains(vehicle)) {// bilen måste vara inom en 5x5 kvadrat
+        if ((Math.abs(diffX)<=5) && (Math.abs(diffY)<=5) && !vehicleLoad.contains(vehicle)) {
+            // bilen måste vara inom en 5x5 kvadrat
             if (loadSize < 2 && this.getCurrentSpeed() == 0 && maxLoad > vehicleLoad.size() && ramp) {
                 vehicleLoad.add(vehicle);
                 vehicle.x=this.x;
@@ -96,4 +96,4 @@ public class Transport extends Vehicle{
         }
     }
 
-}//Transport
+}

@@ -1,34 +1,16 @@
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-
-/*
- * This class represents the Controller part in the MVC pattern.
- * It's responsibilities is to listen to the View and responds in a appropriate manner by
- * modifying the model state and the updating the view.
- */
 
 public class VehicleController {
-    // member fields:
-
-    // The delay (ms) corresponds to 20 updates a sec (hz)
     private final int delay = 50;
-    // The timer is started with an listener (see below) that executes the statements
-    // each step between delays.
     public Timer timer = new Timer(delay, new TimerListener());
-
-    // The frame that represents this instance View of the MVC pattern
     private VehicleView view;
 
     private VehicleModel model;
-    // A list of vehicle, modify if needed
 
-
-    //methods:
 
     public VehicleController(VehicleView vv, VehicleModel vm){
         this.view = vv;
@@ -92,13 +74,6 @@ public class VehicleController {
         });
     }
 
-
-
-
-
-    /* Each step the TimerListener moves all the Vehicle in the list and tells the
-     * view to update its images. Change this method to your needs.
-     * */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             for (Vehicle vehicle : model.vehicles) {
@@ -110,6 +85,4 @@ public class VehicleController {
             }
         }
     }
-
-    // Calls the gas method for each vehicle once
 }

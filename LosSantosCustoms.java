@@ -1,25 +1,25 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class LosSantosCustoms implements GenericGarage<Cars>{
-    private final HelperGarage<Cars> parent;  // Composition
+public class LosSantosCustoms implements GenericGarage<Vehicle>{
+    private final HelperGarage<Vehicle> parent;  // Composition
 
     public LosSantosCustoms(int capacity){
-        parent = new HelperGarage<Cars>(capacity);
+        parent = new HelperGarage<Vehicle>(capacity);
     }
 
 
     @Override
-    public void handInCar(Cars car) {
-        parent.handInCar(car);        // Delegation
+    public void handInVehicle(Vehicle vehicle) {
+        parent.handInVehicle(vehicle);        // Delegation
     }
 
     @Override
-    public List<Cars> getGarageCars() {
-        return parent.getGarageCars();
+    public List<Vehicle> getGarageVehicle() {
+        return parent.getGarageVehicle();
     }
     @Override
-    public void collectCar(Cars car){
-        parent.collectCar(car);
+    public void collectVehicle(Vehicle vehicle){
+        parent.collectVehicle(vehicle);
     }
 }

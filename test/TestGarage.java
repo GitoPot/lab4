@@ -22,28 +22,28 @@ public class TestGarage {
     }
 
     @Test
-    public void testSaabGarageHandInCar(){ //Om testaren testar att lämna in en volvo i saabgaraget, kommer hen få ett compile fel.
-        saabGarage.handInCar(saab);
-        saabGarage.handInCar(saab);
-        assertTrue(saabGarage.getGarageCars().size()==1);
+    public void testSaabGarageHandInVehicle(){ //Om testaren testar att lämna in en volvo i saabgaraget, kommer hen få ett compile fel.
+        saabGarage.handInVehicle(saab);
+        saabGarage.handInVehicle(saab);
+        assertTrue(saabGarage.getGarageVehicle().size()==1);
     }
 
     @Test
-    public void testLosSantosCustomsHanInCar(){
-        losSantos.handInCar(volvo);
-        losSantos.handInCar(saab);
-        losSantos.handInCar(volvo);
-        assertTrue(losSantos.getGarageCars().size()==2);
+    public void testLosSantosCustomsHanInVehicle(){
+        losSantos.handInVehicle(volvo);
+        losSantos.handInVehicle(saab);
+        losSantos.handInVehicle(volvo);
+        assertTrue(losSantos.getGarageVehicle().size()==2);
     }
 
 
     @Test
-    public void testSaabCollectCar(){
-        saabGarage.handInCar(saab);
-        saabGarage.handInCar(saab2);
-        saabGarage.handInCar(saab2);
-        saabGarage.collectCar(saab2);
-        assertTrue(saabGarage.getGarageCars().size()==1);
+    public void testSaabCollectVehicle(){
+        saabGarage.handInVehicle(saab);
+        saabGarage.handInVehicle(saab2);
+        saabGarage.handInVehicle(saab2);
+        saabGarage.collectVehicle(saab2);
+        assertTrue(saabGarage.getGarageVehicle().size()==1);
 
     }
 }

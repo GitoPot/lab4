@@ -1,13 +1,13 @@
 import java.awt.*;
 
 
-public abstract class Cars implements Movable {
+public abstract class Vehicle implements Movable {
 
-    private final int nrDoors; // Number of doors on the car
-    private final double enginePower; // Engine power of the car
-    protected double currentSpeed; // The current speed of the car
-    private Color color; // Color of the car
-    private final String modelName; // The car model name
+    private final int nrDoors; // Number of doors on the Vehicle
+    private final double enginePower; // Engine power of the Vehicle
+    protected double currentSpeed; // The current speed of the Vehicle
+    private Color color; // Color of the Vehicle
+    private final String modelName; // The Vehicle model name
     private final int loadSize;
 
     private boolean LoadedLocked;
@@ -17,12 +17,12 @@ public abstract class Cars implements Movable {
     protected double y;
     private int direction;
 
-    protected Cars(int carNrDoors, double carEnginePower, Color carColor, String carModelName, int carLoadSize) {
-        nrDoors = carNrDoors;
-        enginePower = carEnginePower;
-        color = carColor;
-        modelName = carModelName;
-        loadSize = carLoadSize;
+    protected Vehicle(int vehicleNrDoors, double vehicleEnginePower, Color vehicleColor, String vehicleModelName, int vehicleLoadSize) {
+        nrDoors = vehicleNrDoors;
+        enginePower = vehicleEnginePower;
+        color = vehicleColor;
+        modelName = vehicleModelName;
+        loadSize = vehicleLoadSize;
         x = 0;
         y = 0;
         stopEngine();
@@ -83,7 +83,7 @@ public abstract class Cars implements Movable {
             incrementSpeed(amount);
         } else {
 
-            System.out.println("Amount outside incrementSpeed range or the cars are not started");
+            System.out.println("Amount outside incrementSpeed range or the Vehicle are not started");
 
         }
 

@@ -21,37 +21,37 @@ public class TestTransport {
     }
 
     @Test
-    public void testAddCardToLoad(){
-        transport.addCarToLoad(saab);
-        List<Cars> carLoad = transport.getCarLoad();
+    public void testAddVehicleToLoad(){
+        transport.addVehicleToLoad(saab);
+        List<Vehicle> vehicleLoad = transport.getVehicleLoad();
         transport.changeRamp();
-        transport.addCarToLoad(volvo);
-        transport.addCarToLoad(scania);
-        transport.addCarToLoad(saab);
+        transport.addVehicleToLoad(volvo);
+        transport.addVehicleToLoad(scania);
+        transport.addVehicleToLoad(saab);
 
 
-        assertTrue(carLoad.size()==2);
+        assertTrue(vehicleLoad.size()==2);
     }
     @Test
-    public void testRemoveCarFromLoad(){
+    public void testRemoveVehicleFromLoad(){
         transport.changeRamp();
-        transport.addCarToLoad(saab);
-        transport.addCarToLoad(volvo);
-        System.out.println(transport.getCarLoad());
+        transport.addVehicleToLoad(saab);
+        transport.addVehicleToLoad(volvo);
+        System.out.println(transport.getVehicleLoad());
 
         transport.changeRamp();
-        transport.removeCarFromLoad();
-        System.out.println(transport.getCarLoad());
+        transport.removeVehicleFromLoad();
+        System.out.println(transport.getVehicleLoad());
 
         transport.changeRamp();
-        transport.removeCarFromLoad();
-        System.out.println(transport.getCarLoad());
-        assertTrue(transport.getCarLoad().size()==1);
+        transport.removeVehicleFromLoad();
+        System.out.println(transport.getVehicleLoad());
+        assertTrue(transport.getVehicleLoad().size()==1);
     }
     @Test
     public void testMovable(){//testar även turn funtionerna
         transport.changeRamp();
-        transport.addCarToLoad(volvo);
+        transport.addVehicleToLoad(volvo);
         transport.changeRamp();
         transport.gas(1);
         transport.move();

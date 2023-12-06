@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class BrandGarage<T extends Cars> implements GenericGarage<T>{
+public class BrandGarage<T extends Vehicle> implements GenericGarage<T>{
 
     private final HelperGarage<T> parent; // Composition
 
@@ -9,17 +9,17 @@ public class BrandGarage<T extends Cars> implements GenericGarage<T>{
     }
 
     @Override
-    public void handInCar(T car) {
-        parent.handInCar(car); //Deligerar
+    public void handInVehicle(T vehicle) {
+        parent.handInVehicle(vehicle); //Deligerar
     }
     @Override
-    public List<T> getGarageCars(){
-        return parent.getGarageCars(); // deligerar
+    public List<T> getGarageVehicle(){
+        return parent.getGarageVehicle(); // deligerar
     }
 
 
     @Override
-    public void collectCar(T car) {
-        parent.collectCar(car);
+    public void collectVehicle(T vehicle) {
+        parent.collectVehicle(vehicle);
     }
 }

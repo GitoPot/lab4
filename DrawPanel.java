@@ -5,7 +5,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-// This panel represent the animated part of the view with the car images.
+// This panel represent the animated part of the view with the Vehicle images.
 
 public class DrawPanel extends JPanel{
 
@@ -13,25 +13,25 @@ public class DrawPanel extends JPanel{
     BufferedImage volvoImage;
     BufferedImage saabImage;
     BufferedImage scaniaImage;
-    // To keep track of a singel cars position
+    // To keep track of a singel vehicle position
     Point volvoPoint = new Point();
     Point saabPoint = new Point();
     Point scaniaPoint = new Point();
 
-    // TODO: Make this genereal for all cars
-    void moveit(int x, int y, Cars car){
-        if (x < 0){car.stopEngine(); car.startEngine(); car.x=0; car.turnLeft(); car.turnLeft();}
-        else if (x > 700){car.stopEngine(); car.startEngine(); car.x=700; car.turnLeft(); car.turnLeft();}
-        else if (y < 0){car.turnLeft(); car.turnLeft(); car.y=0; car.stopEngine(); car.startEngine(); }
-        else if (y > 500){car.turnLeft(); car.turnLeft(); car.y=500; car.stopEngine(); car.startEngine(); }
+    // TODO: Make this genereal for all vehicle
+    void moveit(int x, int y, Vehicle vehicle){
+        if (x < 0){vehicle.stopEngine(); vehicle.startEngine(); vehicle.x=0; vehicle.turnLeft(); vehicle.turnLeft();}
+        else if (x > 700){vehicle.stopEngine(); vehicle.startEngine(); vehicle.x=700; vehicle.turnLeft(); vehicle.turnLeft();}
+        else if (y < 0){vehicle.turnLeft(); vehicle.turnLeft(); vehicle.y=0; vehicle.stopEngine(); vehicle.startEngine(); }
+        else if (y > 500){vehicle.turnLeft(); vehicle.turnLeft(); vehicle.y=500; vehicle.stopEngine(); vehicle.startEngine(); }
 
-        if (car instanceof Volvo240){
+        if (vehicle instanceof Volvo240){
             volvoPoint.x = x;
             volvoPoint.y = y;
-        } else if (car instanceof Saab95) {
+        } else if (vehicle instanceof Saab95) {
             saabPoint.x = x;
             saabPoint.y = y;
-        } else if (car instanceof Scania){
+        } else if (vehicle instanceof Scania){
             scaniaPoint.x = x;
             scaniaPoint.y = y;
         }

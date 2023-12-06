@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Scania extends Cars{
+public class Scania extends Vehicle{
 
     private double gradiant;
 

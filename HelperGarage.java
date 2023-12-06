@@ -5,34 +5,34 @@ public class HelperGarage<T> implements GenericGarage<T>{
 
 
     private int garageCapacity;
-    private List<T> garageCars;
+    private List<T> garageVehicle;
 
     public HelperGarage(int capacity){
-        garageCars = new ArrayList<T>();
+        garageVehicle = new ArrayList<T>();
         garageCapacity = capacity;
     }
     @Override
-    public List<T> getGarageCars(){
-        return garageCars;
+    public List<T> getGarageVehicle(){
+        return garageVehicle;
     }
     @Override
-    public void handInCar(T car) {
-        if(garageCars.size()<garageCapacity && !garageCars.contains(car)){
-            garageCars.add(car);
+    public void handInVehicle(T vehicle) {
+        if(garageVehicle.size()<garageCapacity && !garageVehicle.contains(vehicle)){
+            garageVehicle.add(vehicle);
         }
         else {
-            System.out.println("The car is already in the garage");
+            System.out.println("The Vehicle is already in the garage");
         }
 
     }
 
     @Override
-    public void collectCar(T car){
-        if (garageCars.contains(car)){
-            garageCars.remove(car);
+    public void collectVehicle(T vehicle){
+        if (garageVehicle.contains(vehicle)){
+            garageVehicle.remove(vehicle);
         }
         else {
-            System.out.println("The car is not in the garage");
+            System.out.println("The vehicle is not in the garage");
         }
 
     }

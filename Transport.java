@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.lang.Math.*;
 
-public class Transport extends Cars{
+public class Transport extends Vehicle{
     private boolean ramp;
-    private List<Cars> carLoad;
+    private List<Vehicle> vehicleLoad;
 
     private int maxLoad;
 
@@ -14,7 +14,7 @@ public class Transport extends Cars{
         super(2,100, Color.yellow, "Jumper EH35L HDI", 2);
         ramp=false;
         maxLoad=maximumLoad;
-        carLoad = new ArrayList<Cars>();
+        vehicleLoad = new ArrayList<Vehicle>();
     }
 
     @Override
@@ -40,32 +40,32 @@ public class Transport extends Cars{
             ramp = false;
         }
     }
-    public List<Cars> getCarLoad(){
-        return carLoad;
+    public List<Vehicle> getVehicleLoad(){
+        return vehicleLoad;
     }
 
-    protected void addCarToLoad(Cars Car){ //antag att Transporten bara kan lasta personbilar
-        int loadSize = Car.getLoadSize();
-        double diffX = this.getX()-Car.getX();
-        double diffY = this.getY()-Car.getY();
-        if ((Math.abs(diffX)<=5) && (Math.abs(diffY)<=5) && !carLoad.contains(Car)) {// bilen måste vara inom en 5x5 kvadrat
-            if (loadSize < 2 && this.getCurrentSpeed() == 0 && maxLoad > carLoad.size() && ramp) {
-                carLoad.add(Car);
-                Car.x=this.x;
-                Car.y=this.y;
-                if(!Car.getLoadedLocked()){Car.setLoadedLocked();}
+    protected void addVehicleToLoad(Vehicle vehicle){ //antag att Transporten bara kan lasta personbilar
+        int loadSize = vehicle.getLoadSize();
+        double diffX = this.getX()-vehicle.getX();
+        double diffY = this.getY()-vehicle.getY();
+        if ((Math.abs(diffX)<=5) && (Math.abs(diffY)<=5) && !vehicleLoad.contains(vehicle)) {// bilen måste vara inom en 5x5 kvadrat
+            if (loadSize < 2 && this.getCurrentSpeed() == 0 && maxLoad > vehicleLoad.size() && ramp) {
+                vehicleLoad.add(vehicle);
+                vehicle.x=this.x;
+                vehicle.y=this.y;
+                if(!vehicle.getLoadedLocked()){vehicle.setLoadedLocked();}
             }
         }
 
     }
 
-    public void removeCarFromLoad(){
-        int index = carLoad.size();
-        Cars car = carLoad.get(index - 1);
+    public void removeVehicleFromLoad(){
+        int index = vehicleLoad.size();
+        Vehicle vehicle = vehicleLoad.get(index - 1);
 
-        if ( this.getCurrentSpeed() == 0 && ramp && car.getLoadedLocked()) {
-            carLoad.remove(car);
-            car.setLoadedLocked();
+        if ( this.getCurrentSpeed() == 0 && ramp && vehicle.getLoadedLocked()) {
+            vehicleLoad.remove(vehicle);
+            vehicle.setLoadedLocked();
         }
         else {
             System.out.println("Please put down the ramp and stop moving!");
@@ -90,9 +90,9 @@ public class Transport extends Cars{
             x=x-getCurrentSpeed();
 
         }
-        for (Cars cars : carLoad) {
-            cars.x = this.x;
-            cars.y = this.y;
+        for (Vehicle vehicle : vehicleLoad) {
+            vehicle.x = this.x;
+            vehicle.y = this.y;
         }
     }
 

@@ -1,18 +1,19 @@
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
 
 public class DrawPanel extends JPanel{
 
+    private final VehicleModel model;
+    private ArrayList<Point> points;
+
     BufferedImage volvoImage;
     BufferedImage saabImage;
     BufferedImage scaniaImage;
-    Point volvoPoint = new Point();
-    Point saabPoint = new Point();
-    Point scaniaPoint = new Point();
 
     void moveit(int x, int y, Vehicle vehicle){
         if (x < 0){
@@ -28,23 +29,18 @@ public class DrawPanel extends JPanel{
             vehicle.turnLeft(); vehicle.turnLeft(); vehicle.y=500; vehicle.stopEngine(); vehicle.startEngine();
         }
 
-        if (vehicle instanceof Volvo240){
-            volvoPoint.x = x;
-            volvoPoint.y = y;
-        } else if (vehicle instanceof Saab95) {
-            saabPoint.x = x;
-            saabPoint.y = y;
-        } else if (vehicle instanceof Scania){
-            scaniaPoint.x = x;
-            scaniaPoint.y = y;
-        }
+        points.get(model.getVehicles().indexOf(vehicle)).x = x;
+        points.get(model.getVehicles().indexOf(vehicle)).y = model.getVehicles().indexOf(vehicle)*100;
+
 
     }
 
-    public DrawPanel(int x, int y) {
+    public DrawPanel(int x, int y, VehicleModel model) {
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
         this.setBackground(Color.green);
+        this.model = model;
+        this.points = model.getPointList();
 
         try {
             volvoImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg"));
@@ -59,8 +55,21 @@ public class DrawPanel extends JPanel{
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(volvoImage, volvoPoint.x, volvoPoint.y, null); // see javadoc for more info on the parameters
-        g.drawImage(saabImage, saabPoint.x, saabPoint.y, null);
-        g.drawImage(scaniaImage, scaniaPoint.x, scaniaPoint.y, null);
+
+        for (Vehicle vehicle : model.getVehicles()) {
+
+            if (vehicle instanceof Volvo240) {
+                g.drawImage(volvoImage, points.get(model.getVehicles().indexOf(vehicle)).x,
+                        points.get(model.getVehicles().indexOf(vehicle)).y, null);
+
+            } else if (vehicle instanceof Saab95) {
+                g.drawImage(saabImage, points.get(model.getVehicles().indexOf(vehicle)).x,
+                        points.get(model.getVehicles().indexOf(vehicle)).y, null);
+
+            } else if (vehicle instanceof Scania) {
+                g.drawImage(scaniaImage, points.get(model.getVehicles().indexOf(vehicle)).x,
+                        points.get(model.getVehicles().indexOf(vehicle)).y, null);
+            }
+        }
     }
 }

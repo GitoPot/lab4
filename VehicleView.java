@@ -1,5 +1,8 @@
 import javax.swing.*;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 public class VehicleView extends JFrame{
@@ -13,22 +16,22 @@ public class VehicleView extends JFrame{
     JPanel controlPanel = new JPanel();
 
     JPanel gasPanel = new JPanel();
-    JSpinner gasSpinner = new JSpinner();
+    private JSpinner gasSpinner = new JSpinner();
     int gasAmount = 0;
-    JLabel gasLabel = new JLabel("Amount of gas");
+    private JLabel gasLabel = new JLabel("Amount of gas");
 
-    JButton gasButton = new JButton("Gas");
-    JButton brakeButton = new JButton("Brake");
-    JButton turboOnButton = new JButton("Saab Turbo on");
-    JButton turboOffButton = new JButton("Saab Turbo off");
-    JButton liftBedButton = new JButton("Scania Lift Bed");
-    JButton lowerBedButton = new JButton("Lower Lift Bed");
+    private JButton gasButton = new JButton("Gas");
+    private JButton brakeButton = new JButton("Brake");
+    private JButton turboOnButton = new JButton("Saab Turbo on");
+    private JButton turboOffButton = new JButton("Saab Turbo off");
+    private JButton liftBedButton = new JButton("Scania Lift Bed");
+    private JButton lowerBedButton = new JButton("Lower Lift Bed");
 
-    JButton startButton = new JButton("Start all Vehicle");
-    JButton stopButton = new JButton("Stop all Vehicle");
+    private JButton startButton = new JButton("Start all Vehicle");
+    private JButton stopButton = new JButton("Stop all Vehicle");
 
     // Constructor
-    public VehicleView(String framename){
+    public VehicleView(String framename, VehicleModel model){
 
         initComponents(framename);
     }
@@ -93,4 +96,39 @@ public class VehicleView extends JFrame{
         // Make sure the frame exits when "x" is pressed
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+    public void addGasSpinnerListener(ChangeListener listener){
+        gasSpinner.addChangeListener(listener);
+    }
+    public void addGasButtonActionListener(ActionListener listener){
+       gasButton.addActionListener(listener);
+    }
+
+    public void addBrakeButtonActionListener(ActionListener listener){
+        brakeButton.addActionListener(listener);
+    }
+
+    public void addTurboOnButtonActionListener(ActionListener listener){
+        turboOnButton.addActionListener(listener);
+    }
+
+    public void addTurboOffButtonActionListener(ActionListener listener){
+        turboOffButton.addActionListener(listener);
+    }
+
+    public void addLiftBedButtonActionListener(ActionListener listener){
+        liftBedButton.addActionListener(listener);
+    }
+
+    public void addLowerBedButtonActionListener(ActionListener listener){
+        lowerBedButton.addActionListener(listener);
+    }
+
+    public void addStartButtonActionListener(ActionListener listener){
+        startButton.addActionListener(listener);
+    }
+
+    public void addStopButtonActionListener(ActionListener listener){
+        stopButton.addActionListener(listener);
+    }
+
 }

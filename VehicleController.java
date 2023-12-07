@@ -19,54 +19,54 @@ public class VehicleController {
 
     }
     private void addListeners(){
-        view.gasSpinner.addChangeListener(new ChangeListener() {
+        view.addGasSpinnerListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
                 view.gasAmount = (int) ((JSpinner)e.getSource()).getValue();
             }
         });
-        view.gasButton.addActionListener(new ActionListener() {
+        view.addGasButtonActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 model.gas(view.gasAmount);
             }
         });
-        view.brakeButton.addActionListener(new ActionListener() {
+        view.addBrakeButtonActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 model.brake(view.gasAmount);
             }
         });
-        view.turboOnButton.addActionListener(new ActionListener() {
+        view.addTurboOnButtonActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 model.turboOn();
             }
         });
-        view.turboOffButton.addActionListener(new ActionListener() {
+        view.addTurboOffButtonActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 model.turboOff();
             }
         });
-        view.liftBedButton.addActionListener(new ActionListener() {
+        view.addLiftBedButtonActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 model.liftBed();
             }
         });
-        view.lowerBedButton.addActionListener(new ActionListener() {
+        view.addLowerBedButtonActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 model.lowerBed();
             }
         });
-        view.startButton.addActionListener(new ActionListener() {
+        view.addStartButtonActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 model.start();
             }
         });
-        view.stopButton.addActionListener(new ActionListener() {
+        view.addStopButtonActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 model.stop();
@@ -83,6 +83,7 @@ public class VehicleController {
                 view.drawPanel.moveit(x, y, vehicle);
                 view.drawPanel.repaint();
             }
+
         }
     }
 }

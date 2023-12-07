@@ -1,14 +1,18 @@
 import javax.swing.*;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
+
+import java.util.ArrayList;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class VehicleView extends JFrame{
+
+public class VehicleView extends JFrame implements ModelUpdateListener{
     private static final int X = 800;
     private static final int Y = 800;
-
+    private VehicleModel model;
 
 
     DrawPanel drawPanel = new DrawPanel(X, Y-240);
@@ -33,6 +37,7 @@ public class VehicleView extends JFrame{
     // Constructor
     public VehicleView(String framename, VehicleModel model){
 
+        this.model=model;
         initComponents(framename);
     }
 
@@ -96,6 +101,17 @@ public class VehicleView extends JFrame{
         // Make sure the frame exits when "x" is pressed
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+
+
+    @Override
+    public void actOnModelUpdate() {
+        ArrayList<Vehicle> vehicles = model.getVehicles();
+        for (Vehicle vehicle : vehicles){
+            drawPanel.moveit(model.updateXPos(vehicle), model.updateYPos(vehicle), vehicle);
+        }
+        drawPanel.repaint();
+    }
+
     public void addGasSpinnerListener(ChangeListener listener){
         gasSpinner.addChangeListener(listener);
     }
@@ -130,5 +146,4 @@ public class VehicleView extends JFrame{
     public void addStopButtonActionListener(ActionListener listener){
         stopButton.addActionListener(listener);
     }
-
 }

@@ -5,8 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class VehicleController {
-    private final int delay = 50;
-    public Timer timer = new Timer(delay, new TimerListener());
+
     private VehicleView view;
 
     private VehicleModel model;
@@ -74,16 +73,6 @@ public class VehicleController {
         });
     }
 
-    private class TimerListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            for (Vehicle vehicle : model.vehicles) {
-                model.updateVehiclePosition(vehicle);
-                int x = model.updateXPos(vehicle);
-                int y = model.updateYPos(vehicle);
-                view.drawPanel.moveit(x, y, vehicle);
-                view.drawPanel.repaint();
-            }
 
-        }
-    }
+
 }

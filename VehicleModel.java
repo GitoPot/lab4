@@ -98,14 +98,17 @@ public class VehicleModel {
             vehicle.stopEngine();
         }
     }
-    void addVehicle(){
-        int randomNumber = random.nextInt(3) + 1;
-        if (randomNumber == 1){
+    void addVehicle(){//kvar att Implementera knapp, logik klar
+        switch (random.nextInt(3) + 1){
+        case 1:
             addVehicle(new Volvo240());
-        }else if (randomNumber == 2) {
+            break;
+        case 2:
             addVehicle(new Saab95());
-        }else if (randomNumber == 3) {
+            break;
+        case 3:
             addVehicle(new Scania());
+            break;
         }
     }
     void updateVehiclePosition(Vehicle vehicle){

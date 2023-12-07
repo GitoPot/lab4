@@ -15,9 +15,10 @@ public class Application {
 
     private static VehicleModel initVehicleModel(){
         VehicleModel model = new VehicleModel();
-        model.addVehicle();
-        model.addVehicle();
-        model.addVehicle();
+        model.addVehicle(new Volvo240());
+        model.addVehicle(new Saab95());
+        model.addVehicle(new Scania());
+        model.addVehicle(new Volvo240());
         return model;
     }
     private static VehicleView initVehicleView(VehicleModel model){

@@ -15,7 +15,7 @@ public class VehicleView extends JFrame implements ModelUpdateListener{
     private VehicleModel model;
 
 
-    DrawPanel drawPanel = new DrawPanel(X, Y-240);
+    DrawPanel drawPanel;
 
     JPanel controlPanel = new JPanel();
 
@@ -38,6 +38,7 @@ public class VehicleView extends JFrame implements ModelUpdateListener{
     public VehicleView(String framename, VehicleModel model){
 
         this.model=model;
+        this.drawPanel = new DrawPanel(X, Y-240, model);
         initComponents(framename);
     }
 

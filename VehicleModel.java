@@ -1,17 +1,24 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class VehicleModel {
-    private ArrayList<Vehicle> vehicles = new ArrayList<>();
+    private ArrayList<Vehicle> vehicles;
+    private ArrayList<Point> PointList;
+
+    private Random random;
     private final TimerListener timerListener;
 
     private final int delay = 50;
     private Timer timer = new Timer(delay, new VehicleModel.TimerListener());
 
     public VehicleModel(){
+        this.random = new Random();
+        PointList = new ArrayList<>();
         vehicles = new ArrayList<>();
         this.timer.start();
         timerListener = new TimerListener();
@@ -21,8 +28,17 @@ public class VehicleModel {
         return vehicles;
     }
 
+    public ArrayList<Point> getPointList(){
+        return PointList;
+    }
+
     public void addVehicle(Vehicle vehicle){
-        vehicles.add(vehicle);
+        if (vehicles.size() <= 10){// lägg inte till mer än 10 fordon
+            vehicles.add(vehicle);
+            PointList.add(new Point());
+        }else{
+            System.out.println("För många fordon aktiva samtidigt");
+        }
     }
     public void gas(int amount){
         double gas = ((double) amount) / 100;
@@ -80,6 +96,16 @@ public class VehicleModel {
         System.out.println("Fordonen har stoppats");
         for (Vehicle vehicle : vehicles) {
             vehicle.stopEngine();
+        }
+    }
+    void addVehicle(){
+        int randomNumber = random.nextInt(3) + 1;
+        if (randomNumber == 1){
+            addVehicle(new Volvo240());
+        }else if (randomNumber == 2) {
+            addVehicle(new Saab95());
+        }else if (randomNumber == 3) {
+            addVehicle(new Scania());
         }
     }
     void updateVehiclePosition(Vehicle vehicle){

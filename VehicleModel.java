@@ -1,10 +1,24 @@
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
 public class VehicleModel {
-    ArrayList<Vehicle> vehicles = new ArrayList<>();
+    private ArrayList<Vehicle> vehicles = new ArrayList<>();
+    private final TimerListener timerListener;
+
+    private final int delay = 50;
+    private Timer timer = new Timer(delay, new VehicleModel.TimerListener());
 
     public VehicleModel(){
         vehicles = new ArrayList<>();
+        this.timer.start();
+        timerListener = new TimerListener();
+    }
+
+    public ArrayList<Vehicle> getVehicles(){
+        return vehicles;
     }
 
     public void addVehicle(Vehicle vehicle){
@@ -79,5 +93,30 @@ public class VehicleModel {
     }
 
 
+    private class TimerListener implements ActionListener {
+
+        public void actionPerformed(ActionEvent e) {
+            for (Vehicle vehicle : vehicles) {
+
+                updateVehiclePosition(vehicle);
+                //view.drawPanel.moveit(x, y, vehicle);
+                //view.drawPanel.repaint();
+                //NOTIFY LISTENER
+
+                //ActOnModelUpdate
+            }
+            notifyListeners();
+        }
+    }
+    private List<ModelUpdateListener> listeners = new ArrayList<>();
+    private void notifyListeners(){
+        for (ModelUpdateListener l : listeners)
+            l.actOnModelUpdate();
+    }
+
+
+    public void addListener(ModelUpdateListener l){
+        listeners.add(l);
+    }
 
 }

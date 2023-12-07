@@ -7,7 +7,6 @@ public class Application {
         // Instance of this class
         VehicleModel model = initVehicleModel();
         VehicleView view = initVehicleView(model);
-
         VehicleController cc = new VehicleController(view, model);
 
         // Start a new view and send a reference of self

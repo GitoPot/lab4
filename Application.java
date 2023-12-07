@@ -4,7 +4,7 @@ public class Application {
     public static void main(String[] args) {
         // Instance of this class
         VehicleModel model = new VehicleModel();
-        VehicleView view = new VehicleView("PlaceHolder");
+        VehicleView view = new VehicleView("PlaceHolder", model);
         VehicleController cc = new VehicleController(view, model);
 
         model.addVehicle(new Volvo240());

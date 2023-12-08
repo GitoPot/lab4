@@ -26,13 +26,16 @@ public class VehicleView extends JFrame implements ModelUpdateListener{
 
     private JButton gasButton = new JButton("Gas");
     private JButton brakeButton = new JButton("Brake");
-    private JButton turboOnButton = new JButton("Saab Turbo on");
-    private JButton turboOffButton = new JButton("Saab Turbo off");
-    private JButton liftBedButton = new JButton("Scania Lift Bed");
-    private JButton lowerBedButton = new JButton("Lower Lift Bed");
+    private JButton turboOnButton = new JButton("Turbo on");
+    private JButton turboOffButton = new JButton("Turbo off");
+    private JButton liftBedButton = new JButton("Higher Bed");
+    private JButton lowerBedButton = new JButton("Lower Bed");
 
-    private JButton startButton = new JButton("Start all Vehicle");
-    private JButton stopButton = new JButton("Stop all Vehicle");
+    private JButton startButton = new JButton("Start all");
+    private JButton stopButton = new JButton("Stop all");
+
+    private JButton addRandom = new JButton("Add random");
+    private JButton deleteVehicle = new JButton("Delete one");
 
     // Constructor
     public VehicleView(String framename, VehicleModel model){
@@ -66,14 +69,17 @@ public class VehicleView extends JFrame implements ModelUpdateListener{
 
         this.add(gasPanel);
 
-        controlPanel.setLayout(new GridLayout(2,4));
+        controlPanel.setLayout(new GridLayout(2,5));
 
         controlPanel.add(gasButton, 0);
         controlPanel.add(turboOnButton, 1);
         controlPanel.add(liftBedButton, 2);
-        controlPanel.add(brakeButton, 3);
-        controlPanel.add(turboOffButton, 4);
-        controlPanel.add(lowerBedButton, 5);
+        controlPanel.add(addRandom, 3);
+        controlPanel.add(brakeButton, 4);
+        controlPanel.add(turboOffButton, 5);
+        controlPanel.add(lowerBedButton, 6);
+        controlPanel.add(deleteVehicle, 7);
+
         controlPanel.setPreferredSize(new Dimension((X/2)+4, 200));
         this.add(controlPanel);
         controlPanel.setBackground(Color.CYAN);
@@ -146,5 +152,11 @@ public class VehicleView extends JFrame implements ModelUpdateListener{
 
     public void addStopButtonActionListener(ActionListener listener){
         stopButton.addActionListener(listener);
+    }
+    public void addRandomButtonActionListener(ActionListener listener){
+        addRandom.addActionListener(listener);
+    }
+    public void addDeleteVehicleButtonActionListener(ActionListener listener){
+        deleteVehicle.addActionListener(listener);
     }
 }

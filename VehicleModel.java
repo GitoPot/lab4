@@ -98,7 +98,7 @@ public class VehicleModel {
             vehicle.stopEngine();
         }
     }
-    void addVehicle(){//kvar att Implementera knapp, logik klar
+    void addVehicle(){
         switch (random.nextInt(3) + 1){
         case 1:
             addVehicle(new Volvo240());
@@ -109,6 +109,14 @@ public class VehicleModel {
         case 3:
             addVehicle(new Scania());
             break;
+        }
+    }
+    void removeVehicle(){
+        if (!vehicles.isEmpty()){
+            vehicles.remove(vehicles.size()-1);
+            PointList.remove(vehicles.size()-1);
+        }else{
+            System.out.println("Det finns inga fordon att ta bort");
         }
     }
     void updateVehiclePosition(Vehicle vehicle){

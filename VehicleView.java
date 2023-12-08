@@ -69,7 +69,7 @@ public class VehicleView extends JFrame implements ModelUpdateListener{
 
         this.add(gasPanel);
 
-        controlPanel.setLayout(new GridLayout(2,5));
+        controlPanel.setLayout(new GridLayout(2,4));
 
         controlPanel.add(gasButton, 0);
         controlPanel.add(turboOnButton, 1);

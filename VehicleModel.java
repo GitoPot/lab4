@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 public class VehicleModel {
-    private ArrayList<Vehicle> vehicles;
+    private VehicleComposite composite;
     private ArrayList<Point> PointList;
 
     private Random random;
@@ -19,13 +19,13 @@ public class VehicleModel {
     public VehicleModel(){
         this.random = new Random();
         PointList = new ArrayList<>();
-        vehicles = new ArrayList<>();
+        composite = new VehicleComposite();
         this.timer.start();
         timerListener = new TimerListener();
     }
 
     public ArrayList<Vehicle> getVehicles(){
-        return vehicles;
+        return composite.getVehicles();
     }
 
     public ArrayList<Point> getPointList(){
@@ -33,8 +33,8 @@ public class VehicleModel {
     }
 
     public void addVehicle(Vehicle vehicle){
-        if (vehicles.size() < 10){// lägg inte till mer än 10 fordon
-            vehicles.add(vehicle);
+        if (composite.getSize() <= 10){// lägg inte till mer än 10 fordon
+            composite.addVehicle(vehicle);
             PointList.add(new Point());
         }else{
             System.out.println("För många fordon aktiva samtidigt");
@@ -42,61 +42,31 @@ public class VehicleModel {
     }
     public void gas(int amount){
         double gas = ((double) amount) / 100;
-        for (Vehicle vehicle : vehicles) {
-            vehicle.gas(gas);
-        }
+        composite.gas(gas);
     }
     public void brake(int amount){
         double brake = ((double) amount) /100;
-        for (Vehicle vehicle : vehicles) {
-            vehicle.brake(brake);
-        }
+        composite.brake(brake);
     }
     public void turboOn() {
-
-        for (Vehicle vehicle : vehicles){
-            if(vehicle instanceof Saab95){
-                ((Saab95) vehicle).setTurboOn();;
-            }
-        }
-
+        composite.turboOn();
     }
     void turboOff() {
-        for (Vehicle vehicle : vehicles){
-            if(vehicle instanceof Saab95){
-                ((Saab95) vehicle).setTurboOff();
-            }
-        }
+        composite.turboOff();
     }
     void liftBed() {
-
-        for(Vehicle vehicle : vehicles){
-            if (vehicle instanceof  Scania){
-                ((Scania) vehicle).changeGradiant(70);
-            }
-        }
-
+        composite.liftBed();
     }
     void lowerBed() {
-        for(Vehicle vehicle : vehicles){
-            if (vehicle instanceof  Scania){
-                ((Scania) vehicle).changeGradiant(0);
-            }
-        }
+        composite.lowerBed();
     }
 
-    void start() {
-        System.out.println("Fordonen har startats");
-        for (Vehicle vehicle : vehicles) {
-            vehicle.startEngine();
-        }
+    public void start() {
+        composite.start();
     }
 
     void stop() {
-        System.out.println("Fordonen har stoppats");
-        for (Vehicle vehicle : vehicles) {
-            vehicle.stopEngine();
-        }
+        composite.stop();
     }
     void addVehicle(){
         switch (random.nextInt(3) + 1){
@@ -112,16 +82,10 @@ public class VehicleModel {
         }
     }
     void removeVehicle(){
-        if (!vehicles.isEmpty()){
-            vehicles.remove(vehicles.size()-1);
-            PointList.remove(vehicles.size()-1);
-        }else{
-            System.out.println("Det finns inga fordon att ta bort");
-        }
+        composite.removeVehicle();
+        PointList.remove(composite.getSize()-1);
     }
-    void updateVehiclePosition(Vehicle vehicle){
-        vehicle.move();
-    }
+
     public int updateXPos(Vehicle vehicle){
         return (int) Math.round(vehicle.getX());
     }
@@ -133,15 +97,7 @@ public class VehicleModel {
     private class TimerListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
-            for (Vehicle vehicle : vehicles) {
-
-                updateVehiclePosition(vehicle);
-                //view.drawPanel.moveit(x, y, vehicle);
-                //view.drawPanel.repaint();
-                //NOTIFY LISTENER
-
-                //ActOnModelUpdate
-            }
+            composite.moveAllVehicles();
             notifyListeners();
         }
     }

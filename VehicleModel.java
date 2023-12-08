@@ -33,7 +33,7 @@ public class VehicleModel {
     }
 
     public void addVehicle(Vehicle vehicle){
-        if (composite.getSize() <= 10){// lägg inte till mer än 10 fordon
+        if (composite.getSize() < 10){// lägg inte till mer än 10 fordon
             composite.addVehicle(vehicle);
             PointList.add(new Point());
         }else{

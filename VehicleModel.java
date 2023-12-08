@@ -33,7 +33,7 @@ public class VehicleModel {
     }
 
     public void addVehicle(Vehicle vehicle){
-        if (vehicles.size() <= 10){// lägg inte till mer än 10 fordon
+        if (vehicles.size() < 10){// lägg inte till mer än 10 fordon
             vehicles.add(vehicle);
             PointList.add(new Point());
         }else{

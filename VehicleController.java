@@ -71,6 +71,18 @@ public class VehicleController {
                 model.stop();
             }
         });
+        view.addRandomButtonActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.addVehicle();
+            }
+        });
+        view.addDeleteVehicleButtonActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.removeVehicle();
+            }
+        });
     }
 
 

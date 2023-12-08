@@ -30,7 +30,7 @@ public class DrawPanel extends JPanel{
         }
 
         points.get(model.getVehicles().indexOf(vehicle)).x = x;
-        points.get(model.getVehicles().indexOf(vehicle)).y = model.getVehicles().indexOf(vehicle)*100;
+        points.get(model.getVehicles().indexOf(vehicle)).y = model.getVehicles().indexOf(vehicle)*60;
 
 
     }
